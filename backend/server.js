@@ -40,17 +40,17 @@ const upload = multer({ storage: storage });
 const uploadExcel = multer({storage: storageExcel});
 
 const db = mysql.createPool({
-    // host: "127.0.0.1",
-    // port: "3306",
-    // user: "root",
-    // password: "Alliswell@12",
-    // database: "school"
+    host: "127.0.0.1",
+    port: "3306",
+    user: "root",
+    password: "Alliswell@12",
+    database: "school"
 
-    host:'193.203.184.74',
-    port:"3306",
-    user:'u534462265_AS_GLOBAL',
-    password:'ASGlobal@12345',
-    database:'u534462265_school_crm'
+    // host:'193.203.184.74',
+    // port:"3306",
+    // user:'u534462265_AS_GLOBAL',
+    // password:'ASGlobal@12345',
+    // database:'u534462265_school_crm'
 
 });
 

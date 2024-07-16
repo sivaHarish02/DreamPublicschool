@@ -737,49 +737,6 @@ const [results] = await db.query(getQuery,[cls_id]);
     }
   });
 
-
-  router.get('/feeAllocation/payfeestud/:stu_id', (req, res) => {
-    const stu_id = req.params.stu_id;
-    const query = 'SELECT * FROM fees WHERE stu_id = ?';
-  
-    db.query(query, [stu_id], (err, result) => {
-      if (err) {
-        return res.status(500).json({ error: err.message });
-      }
-      res.json(result);
-    });
-  });
-  
-  router.post('/feeAllocation/feeslogdata', (req, res) => {
-    const { stu_id, stu_name, payingfee, remainingfee, feedate } = req.body;
-    const insertQuery = 'INSERT INTO feeslog (stu_id, stu_name, payingfee, remainingfee, feedate) VALUES (?, ?, ?, ?, ?)';
-  
-    db.query(insertQuery, [stu_id, stu_name, payingfee, remainingfee, feedate], (err, result) => {
-      if (err) {
-        return res.status(500).json({ error: err.message });
-      }
-      res.json({ message: 'Fees data saved successfully', result });
-    });
-  
-    const updateQuery = 'UPDATE fees SET remainingfees = ? WHERE stu_id = ?';
-  
-    db.query(updateQuery, [remainingfee, stu_id], (err, result) => {
-      if (err) {
-        return res.status(500).json({ error: err.message });
-      }
-    });
-  });
-  
-  
-
-
-
-
-
-
-
-
-
   router.get("/getFeesAllocation", async (req, res) => {
     try {
       const getQuery = `
